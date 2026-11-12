@@ -54,7 +54,7 @@ html_theme_options = {
     },
     "header_links_before_dropdown": 6,
     "external_links": [
-#        {"name": "guide", "url": "https://packaging.python.org/"},
+        #{"name": "guide", "url": "https://packaging.python.org/"},
     ],
     "icon_links": [
         {
