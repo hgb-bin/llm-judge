@@ -12,7 +12,7 @@ from tqdm import tqdm
 
 from ._judge import Judge, JudgeResult
 
-from typing import Optional
+from typing import Optional, Any
 
 logger = logging.getLogger(__name__)
 
@@ -70,7 +70,7 @@ def annotate_csv(
     score_google: list[float] = list()
     score_ollama: list[float] = list()
     raw_data: list[JudgeResult] = list()
-    json_data: list[str] = list()
+    json_data: list[dict[str, Any]] = list()
     # file reading
     logger.info(f"Reading file {input_file}...")
     df: pl.DataFrame = pl.read_csv(input_file)
