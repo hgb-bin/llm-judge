@@ -5,25 +5,24 @@ build-backend = "uv_build"
 [project]
 name = "llm-judge"
 version = "0.3.0"
-description = "Add your description here"
-keywords = ["example", "template"]
+description = "Rating natural language translations easily via LLMs."
+keywords = ["nlp", "llm", "translation"]
 readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE"]
 authors = [
-    { name = "Your Name", email = "your.mail@mail.com" },
+    { name = "Micha J. Birklbauer", email = "micha.birklbauer@fh-hagenberg.at" },
 ]
 maintainers = [
-    { name = "Your Name", email = "your.mail@mail.com" },
+    { name = "Micha J. Birklbauer", email = "micha.birklbauer@fh-hagenberg.at" },
 ]
 classifiers = [
     "Programming Language :: Python :: 3 :: Only",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
     "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: 3.15",
     "Operating System :: OS Independent",
-    "Intended Audience :: Science/Research",
-    "Topic :: Scientific/Engineering :: Bio-Informatics",
     "Development Status :: 5 - Production/Stable"
 ]
 requires-python = ">=3.12"
@@ -55,7 +54,7 @@ docs = [
 llm-judge = "llm_judge:main"
 
 [project.urls]
-Homepage = "https://github.com/michabirklbauer/python-pkg_template"
-Documentation = "https://github.com/michabirklbauer/python-pkg_template"
-Repository = "https://github.com/michabirklbauer/python-pkg_template.git"
-Issues = "https://github.com/michabirklbauer/python-pkg_template/issues"
+Homepage = "https://github.com/hgb-bin/llm-judge"
+Documentation = "https://hgb-bin.github.io/llm-judge"
+Repository = "https://github.com/hgb-bin/llm-judge.git"
+Issues = "https://github.com/hgb-bin/llm-judge/issues"

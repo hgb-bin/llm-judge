@@ -1,6 +1,6 @@
 # LLM Judge
 
-<img src="https://github.com/hgb-bin-proteomics/llm-judge/raw/master/docs/icons/icon_padded.png" class="dark-light" align="left" width="200px" style="padding: 5px 5px 5px 5px;"/>
+<img src="https://github.com/hgb-bin/llm-judge/raw/master/docs/icons/icon_padded.png" class="dark-light" align="left" width="200px" style="padding: 5px 5px 5px 5px;"/>
 
 **Rating natural language translations easily via proprietary and open-weights Large Language Models (LLMs).**
 
@@ -23,17 +23,17 @@ integration into production environments.
 
 - Add this to your [uv](https://docs.astral.sh/uv/) project with:
   ```bash
-  uv add git+https://github.com/hgb-bin-proteomics/llm-judge.git
+  uv add git+https://github.com/hgb-bin/llm-judge.git
   ```
 - Or install with pip:
   ```bash
-  pip install git+https://github.com/hgb-bin-proteomics/llm-judge.git
+  pip install git+https://github.com/hgb-bin/llm-judge.git
   ```
 
 ## Usage with Python
 
 - Checkout the example Jupyter notebook at `notebooks/llm-judge-usage.ipynb`.
-- Checkout the python API documentation at https://hgb-bin-proteomics.github.io/llm-judge/
+- Checkout the python API documentation at https://hgb-bin.github.io/llm-judge/
 
 ### Quick Start
 
@@ -81,7 +81,7 @@ integration into production environments.
 - You can use `llm-judge` as a standalone by installing via pip (see [Installation](#installation)).
 - Alternatively, you can run `llm-judge` via [uvx](https://docs.astral.sh/uv/reference/cli/#uv-tool-run):
   ```bash
-  uvx --from git+https://github.com/hgb-bin-proteomics/llm-judge.git llm-judge -h
+  uvx --from git+https://github.com/hgb-bin/llm-judge.git llm-judge -h
   ```
 
 ### Usage Options
@@ -176,7 +176,7 @@ INFO:llm_judge._main:Successfully scored and annotated all translations!
 
 ## License
 
-- [MIT](https://github.com/michabirklbauer/python-pkg_template/blob/master/LICENSE)
+- [MIT](https://github.com/hgb-bin/llm-judge/blob/master/LICENSE)
 
 ## Contact
 
