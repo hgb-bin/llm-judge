@@ -54,7 +54,7 @@ html_theme_options = {
     },
     "header_links_before_dropdown": 6,
     "external_links": [
-        {"name": "guide", "url": "https://packaging.python.org/"},
+#        {"name": "guide", "url": "https://packaging.python.org/"},
     ],
     "icon_links": [
         {
@@ -70,8 +70,8 @@ html_theme_options = {
 }
 html_context = {
     "github_url": "https://github.com",
-    "github_user": "michabirklbauer",
-    "github_repo": "python-pkg_template",
+    "github_user": "hgb-bin",
+    "github_repo": "llm-judge",
     "github_version": "master",
     "doc_path": "docs",
     "default_mode": "auto",
