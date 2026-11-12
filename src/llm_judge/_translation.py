@@ -39,6 +39,7 @@ class TranslationError(BaseModel):
         "awkward",
         "inappropriate for context",
         "inconsistent use",
+        "no-subtype",
     ] = Field(
         description=(
             "The error subtype which can be for 'accuracy': 'addition', 'mistranslation', 'omission', 'untranslated text'; "
