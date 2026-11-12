@@ -23,7 +23,8 @@ class TranslationError(BaseModel):
         description=(
             "The type of translation error: "
             "One of 'accuracy', 'fluency', 'style', 'terminology', 'non-translation', 'other', or 'no-error'."
-        )
+        ),
+        frozen=True,
     )
     error_subtype: Literal[
         "addition",
@@ -45,24 +46,30 @@ class TranslationError(BaseModel):
             "The error subtype which can be for 'accuracy': 'addition', 'mistranslation', 'omission', 'untranslated text'; "
             "for 'fluency': 'character encoding', 'grammar', 'inconsistency', 'punctuation', 'register', 'spelling'; "
             "for 'style': 'awkward'; for 'terminology': 'inappropriate for context', 'inconsistent use'."
-        )
+        ),
+        frozen=True,
     )
     error_severity: Literal["critical", "major", "minor"] = Field(
-        description="Error severity which is one of 'critical', 'major', and 'minor'."
+        description="Error severity which is one of 'critical', 'major', and 'minor'.",
+        frozen=True,
     )
     error_index_start: int = Field(
         ge=0,
         description="The start index in the machine translation where the error occurs (inclusive) using 0-based indexing.",
+        frozen=True,
     )
     error_index_end: int = Field(
         ge=0,
         description="The end index in the machine translation where the error occurs (inclusive) using 0-based indexing.",
+        frozen=True,
     )
     description: str = Field(
-        description="A detailed description of the translation error and how to improve the translation."
+        description="A detailed description of the translation error and how to improve the translation.",
+        frozen=True,
     )
     location: str = Field(
-        description="Where in the machine translation the error is located given as a substring."
+        description="Where in the machine translation the error is located given as a substring.",
+        frozen=True,
     )
 
 
@@ -71,7 +78,8 @@ class TranslationErrorAccuracy(TranslationError):
         description=(
             "The type of translation error: "
             "Should be 'accuracy' for this type of translation error."
-        )
+        ),
+        frozen=True,
     )
     error_subtype: Literal[
         "addition",
@@ -81,7 +89,8 @@ class TranslationErrorAccuracy(TranslationError):
     ] = Field(
         description=(
             "The error subtype which can be for 'accuracy': 'addition', 'mistranslation', 'omission', 'untranslated text'."
-        )
+        ),
+        frozen=True,
     )
 
 
@@ -90,7 +99,8 @@ class TranslationErrorFluency(TranslationError):
         description=(
             "The type of translation error: "
             "Should be 'fluency' for this type of translation error."
-        )
+        ),
+        frozen=True,
     )
     error_subtype: Literal[
         "character encoding",
@@ -102,7 +112,8 @@ class TranslationErrorFluency(TranslationError):
     ] = Field(
         description=(
             "The error subtype which can be for 'fluency': 'character encoding', 'grammar', 'inconsistency', 'punctuation', 'register', 'spelling'."
-        )
+        ),
+        frozen=True,
     )
 
 
@@ -111,10 +122,12 @@ class TranslationErrorStyle(TranslationError):
         description=(
             "The type of translation error: "
             "Should be 'style' for this type of translation error."
-        )
+        ),
+        frozen=True,
     )
     error_subtype: Literal["awkward",] = Field(
-        description=("The error subtype which can be for 'style': 'awkward'.")
+        description=("The error subtype which can be for 'style': 'awkward'."),
+        frozen=True,
     )
 
 
@@ -123,7 +136,8 @@ class TranslationErrorTerminology(TranslationError):
         description=(
             "The type of translation error: "
             "Should be 'terminology' for this type of translation error."
-        )
+        ),
+        frozen=True,
     )
     error_subtype: Literal[
         "inappropriate for context",
@@ -131,7 +145,8 @@ class TranslationErrorTerminology(TranslationError):
     ] = Field(
         description=(
             "The error subtype which can be for 'terminology': 'inappropriate for context', 'inconsistent use'."
-        )
+        ),
+        frozen=True,
     )
 
 
@@ -140,12 +155,14 @@ class TranslationErrorNontranslation(TranslationError):
         description=(
             "The type of translation error: "
             "Should be 'non-translation' for this type of translation error."
-        )
+        ),
+        frozen=True,
     )
     error_subtype: Literal["no-subtype",] = Field(
         description=(
             "The error subtype which can be for 'non-translation': 'no-subtype'."
-        )
+        ),
+        frozen=True,
     )
 
 
@@ -154,10 +171,12 @@ class TranslationErrorOther(TranslationError):
         description=(
             "The type of translation error: "
             "Should be 'other' for this type of translation error."
-        )
+        ),
+        frozen=True,
     )
     error_subtype: Literal["no-subtype",] = Field(
-        description=("The error subtype which can be for 'other': 'no-subtype'.")
+        description=("The error subtype which can be for 'other': 'no-subtype'."),
+        frozen=True,
     )
 
 
@@ -168,10 +187,12 @@ class TranslationErrorNoerror(TranslationError):
             "Should be 'no-error' for this type of translation error - which means this "
             "translation is error free. It is better to not report an error instead of "
             "using 'no-error'!"
-        )
+        ),
+        frozen=True,
     )
     error_subtype: Literal["no-subtype",] = Field(
-        description=("The error subtype which can be for 'no-error': 'no-subtype'.")
+        description=("The error subtype which can be for 'no-error': 'no-subtype'."),
+        frozen=True,
     )
 
 
@@ -183,12 +204,15 @@ class QualityEstimation(BaseModel):
             "The quality estimation of the translation given as a value between 0 and 1 "
             "where 0 is complete gibberish and 1 would be a perfect translation."
         ),
+        frozen=True,
     )
 
 
 class QualityEstimationAnnotated(QualityEstimation):
-    source: str = Field(description="The source text.")
-    machine_translation: str = Field(description="The machine translation text.")
+    source: str = Field(description="The source text.", frozen=True)
+    machine_translation: str = Field(
+        description="The machine translation text.", frozen=True
+    )
     errors: list[
         TranslationErrorAccuracy
         | TranslationErrorFluency
@@ -197,4 +221,4 @@ class QualityEstimationAnnotated(QualityEstimation):
         | TranslationErrorNontranslation
         | TranslationErrorOther
         | TranslationErrorNoerror
-    ] = Field(min_length=0, description="List of all translation errors.")
+    ] = Field(min_length=0, description="List of all translation errors.", frozen=True)
